@@ -1,8 +1,9 @@
 //Application's entry point
-const App = require('./server/App')
+const Application = require('./server/app/Application')
 
 function main(){
-    const app = new App()
+    const app = new Application()
+    app.loadMiddlewares()
     app.run()
 }
 

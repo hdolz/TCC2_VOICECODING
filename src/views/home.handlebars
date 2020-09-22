@@ -1,0 +1,30 @@
+<script src="module/dependencies/codemirror/lib/codemirror.js"></script>
+<link rel="stylesheet" href="module/dependencies/codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="module/dependencies/codemirror/theme/dracula.css">
+<link rel="stylesheet" href="module/dependencies/codemirror/addon/edit/closetag.js">
+<script src="module/dependencies/codemirror/mode/xml/xml.js"></script>
+
+<link rel="stylesheet" href="public/css/style.css">
+
+<div class="container">
+    <header class="header">
+        <div class="logo">
+            <a href="/"> <img src="public/img/logo.png" alt="logo"></a>
+            <h2>Programação por voz</h2>
+        </div>
+        <nav>
+            <ul>
+                <li> <a id="btnRecord" href="javascript:void(0)">Reconhecimento de voz</a> </li>
+                <li> <a id="btnStop" href="javascript:void(0)">Parar Reconhecimento de voz</a> </li>
+                <li> <a id="btnRender" href="javascript:void(0)">Renderizar</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <aside class="codeArea">
+        <textarea id="editor"></textarea>
+    </aside>
+    <aside class="renderArea"></aside>
+    <footer class="footer"><h3 class="status">STATUS:</h3> </footer>
+</div>
+
+<script type="module" src="module/igniter.js"></script>
