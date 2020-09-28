@@ -25,6 +25,17 @@ class Scripts {
         })
     }
 
+    setMnemonics(){
+        document.onkeydown = (event)=> {
+            //ctrl + alt + r
+            if(event.ctrlKey && event.altKey && event.key == 'r') start()
+            //ctrl + alt + s
+            if(event.ctrlKey && event.altKey && event.key == 's') stop()
+            //ctrl + alt + p
+            if(event.ctrlKey && event.altKey && event.key == 'l') render()
+        }
+    }
+
 }
 
 function init(){
@@ -33,6 +44,7 @@ function init(){
     scripts.setRecordButtonListener()
     scripts.setStopButtonListener()
     scripts.setRenderButtonListener()
+    scripts.setMnemonics()
 }
 
 init()

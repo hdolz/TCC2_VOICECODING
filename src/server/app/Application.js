@@ -15,23 +15,18 @@ class Application {
         //express-handlebars middleware
         this.app.set('view engine', 'handlebars')
         this.app.set('views', path.join(__dirname, '../../views'))
-
         //define express template engine
         this.app.engine('handlebars',exphbs({
             extname: 'handlebars',
             layoutsDir: path.join(__dirname,'../../views/layouts')
         }))
-
         //application router
         this.app.use(this.router.getRouter())
-
         //static modules path
         this.app.use('/public', express.static(path.join(__dirname, '../../views/public')));
-
         //application modules
         this.app.use('/module', express.static(path.join(__dirname, '../../module')))
 
-        console.log('-> Middlewares loaded')
     }
 
     run(){

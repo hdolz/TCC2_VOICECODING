@@ -27,12 +27,12 @@ class Recognizer {
         recognition.maxAlternatives = 1;
     }
 
-    setEventListener(editor){
+    setEventListener(handler){
         console.log('Recognizer listening');
         this.recognition.onresult = (event)=>{
             const last = event.results.length - 1;
             const recon = event.results[last][0].transcript;
-            editor.handleRecon(recon)
+            handler.handleRecon(recon.toUpperCase().trim())
         }
     }
 
