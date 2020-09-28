@@ -1,13 +1,39 @@
 "use strict"
 
+const htmlElements = {
+    "h1": "<h1></h1>",
+    "h2": "<h2></h2>",
+    "h3": "<h3></h3>",
+    "h4": "<h4></h4>",
+    "h5": "<h5></h5>",
+    "h6": "<h6></h6>",
+    "p": "<p></p>",
+    "br": "</br>",
+    "a": "<a></a>",
+    "link": "<link>",
+    "ul": "<ul></ul>",
+    "li": "<li></li>",
+    "ol": "<ol></ol>"
+}
+
+const htmlAttributes = {
+    "ID" : 'id=""',
+    "E D": 'id=""'
+}
+
+const attributeNames = {
+    "ID": "id",
+    "E D": "id"
+}
+
 class EditorControls {
 
     constructor(editor){
         this.editor = editor
     }
 
-    triggerControl(action){
-        this[action]()
+    triggerControl(action, param=null){
+        return this[action](param)
     }
 
     //Functions for manipulating the editor
@@ -88,7 +114,7 @@ class EditorControls {
     }
 
     insertText(string){
-        const pos = getCursorPos()
+        const pos = this.getCursorPos()
         this.editor.replaceRange(string, pos)
     }
 
@@ -184,6 +210,67 @@ class EditorControls {
 
     getEditorlineCount(){
         return this.editor.lineCount();
+    }
+
+    setCursorForInsertingValue(){
+        const pos = this.getCursorPos()
+        const line = this.getCursorLineContent()
+        const index = line.indexOf('>')
+        this.setCursorPos(pos.line+1, index+1)
+    }
+
+    insertValueToElement(value){
+        if(value === 'FINALIZAR VALOR'){
+            return true
+        }
+        const pos = this.getCursorPos()
+        this.insertText(value.toLowerCase()+' ', pos)
+    }
+
+    irParaLinha(recon){
+        let reconArray = recon.split(" ")
+        let linha = reconArray.reverse()[0]
+        this.setCursorPos(linha, 0)
+    }
+
+    setCursorForInsertingAttribute(){
+        const pos = this.getCursorPos()
+        const line = this.getCursorLineContent()
+        const index = line.indexOf('>')
+        this.setCursorPos(pos.line+1, index)
+        this.insertText(' ', pos)
+    }
+
+    insertAttributeToElement(attr){
+        console.log('attr para inserir: '+attr)
+        const attribute = htmlAttributes[attr]
+        console.log('ATTRIBUTE: '+attribute)
+        if(attribute === undefined){
+            return false
+        }
+        const pos = this.getCursorPos()
+        this.insertText(attribute, pos)
+        return true
+    }
+
+    setAttributeValuePos(param){
+        const attribute = attributeNames[param]
+        if(attribute === undefined){
+            return false
+        }
+        const line = this.getCursorLineContent()
+        const hasPiece = line.indexOf(attribute)
+        if(hasPiece){
+            const pos = this.getCursorPos()
+            console.log("POSICAO: "+ hasPiece)
+            //esse 2 é =" do attributo
+            this.setCursorPos(pos.line+1, hasPiece+ attribute.length + 2)
+        }
+    }
+
+    insertAttributeValue(param){
+        const pos = this.getCursorPos()
+        this.insertText(param.toLowerCase(), pos)
     }
 
 }
