@@ -3,7 +3,7 @@
 //web speech api native exports
 const SpeechRecognition = webkitSpeechRecognition
 const SpeechGrammarList = webkitSpeechGrammarList
-const SpeechRecognitionEvent = webkitSpeechRecognitionEvent
+// const SpeechRecognitionEvent = webkitSpeechRecognitionEvent
 
 class Recognizer {
 
@@ -16,10 +16,6 @@ class Recognizer {
 
     initGrammar(recognition){
         const speechRecognitionList = new SpeechGrammarList();
-        //define as palavras a serem reconhecidas
-        const palavras = ['Manaus', 'Escopo', 'Programa', 'html', 'black', 'blue', 'Bloco html', 'chocolate', 'coral', 'David'];
-        const grammar = '#JSGF V1.0; grammar palavras; public <palavra> = ' + palavras.join(' | ') + ' ;'
-        speechRecognitionList.addFromString(grammar, 1);
         recognition.grammars = speechRecognitionList;
         recognition.continuous = true;
         recognition.lang = 'pt-br';

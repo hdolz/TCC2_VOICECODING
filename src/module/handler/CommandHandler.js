@@ -2,7 +2,6 @@
 
 import CommandActionMapper from './CommandActionMapper.js'
 import Contextualizer from './Contextualizer.js'
-import Status from '../status/Status.js'
 
 class CommandHandler {
 
@@ -14,29 +13,24 @@ class CommandHandler {
     }
 
     handleRecon(recon){
-        console.log('Recon: ', recon);
         const hasContext = this.contextualizer.checkContext(recon)
         if(hasContext !== null){
             if(hasContext){
-                console.log('comando de contexto');
                 let context = this.contextualizer.getContext()
                 const mapper = this.actionMapper.getMultiAction(context)
-                //se o mapper não for null
                 if(mapper){
                     if(mapper.action) {
                         if(mapper.param){
                             const res = this.editor.triggerAction(mapper.action, recon)
+                            //se a action retornar true, finaliza o contexto em questão
                             if(res) {
                                 mapper.nextContext = null
                                 mapper.stillContext = false
-                                console.log('setou outro contexto de saida de multi');
                             }
                         } else {
                             this.editor.triggerAction(mapper.action)
                         }
                     }
-                    // if(mapper.nextContext) this.contextualizer.setContext(mapper.nextContext)
-                    console.log('contexto proximo: ', mapper.nextContext);
                     this.contextualizer.setContext(mapper.nextContext)
                     this.contextualizer.setHasContext(mapper.stillContext)
                 }
