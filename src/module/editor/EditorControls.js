@@ -4,6 +4,8 @@ import {htmlElements as htmlElements} from '../utils/elementmapping.js'
 import {htmlAttributes as htmlAttributes} from '../utils/elementmapping.js'
 import {attributeNames as attributeNames} from '../utils/elementmapping.js'
 
+import Render from '../render/Render.js'
+
 class EditorControls {
 
     constructor(editor){
@@ -279,6 +281,11 @@ class EditorControls {
         console.log('reconArray: ',reconArray);
         const text = reconArray.join(" ")
         this.insertText(text)
+    }
+
+    renderContent(){
+        const render = new Render()
+        render.renderContent(this.getEditorContent())
     }
 
 }

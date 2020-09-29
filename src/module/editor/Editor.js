@@ -24,6 +24,10 @@ class Editor {
         return editor
     }
 
+    getEditorControl(){
+        return this.control
+    }
+
     triggerAction(action, param=null){
         return this.control.triggerControl(action, param)
     }
