@@ -2,13 +2,15 @@
 
 import CommandActionMapper from './CommandActionMapper.js'
 import Contextualizer from './Contextualizer.js'
+import Status from '../status/Status.js'
 
 class CommandHandler {
 
-    constructor(editor){
+    constructor(editor, status){
         this.editor = editor
         this.contextualizer = new Contextualizer()
         this.actionMapper = new CommandActionMapper()
+        this.status = status
     }
 
     handleRecon(recon){
@@ -38,14 +40,11 @@ class CommandHandler {
                     this.contextualizer.setContext(mapper.nextContext)
                     this.contextualizer.setHasContext(mapper.stillContext)
                 }
+                this.status.setStatus('Comando contexto: '+recon)
             } else {
                 //comando simples
-                console.log('comando simples');
                 let context = this.contextualizer.getContext()
-                console.log('context simples: ', context);
                 const mapper = this.actionMapper.getSimpleAction(context)
-                console.log('mapper');
-                console.log(mapper);
                 if(mapper.param){
                     if(mapper.param === true){
                         this.editor.triggerAction(mapper.action, recon)
@@ -56,9 +55,13 @@ class CommandHandler {
                     this.editor.triggerAction(mapper.action)
                 }
                 this.contextualizer.setContext(null)
+                this.status.setStatus('Comando simples: '+recon)
             }
         } else {
-            console.log('comando inexistente');
+            this.status.setStatus('Comando de voz inexistente')
+            setTimeout(()=>{
+                this.status.setStatus('')
+            }, 2000)
         }
     }
 
