@@ -8,8 +8,6 @@ class CommandHandler {
     constructor(editor){
         this.editor = editor
         this.contextualizer = new Contextualizer()
-        // this.subcontextFlag = null
-        // this.multiContextCommands = ['IR PARA LINHA', 'MANIPULAR ELEMENTO', "INSERIR TEXTO", "INSERIR CARACTERE"]
         this.actionMapper = new CommandActionMapper()
     }
 
@@ -43,13 +41,17 @@ class CommandHandler {
             } else {
                 //comando simples
                 console.log('comando simples');
-                console.log(hasContext.context);
                 let context = this.contextualizer.getContext()
+                console.log('context simples: ', context);
                 const mapper = this.actionMapper.getSimpleAction(context)
                 console.log('mapper');
                 console.log(mapper);
                 if(mapper.param){
-                    this.editor.triggerAction(mapper.action, recon)
+                    if(mapper.param === true){
+                        this.editor.triggerAction(mapper.action, recon)
+                    } else {
+                        this.editor.triggerAction(mapper.action, mapper.param)
+                    }
                 } else {
                     this.editor.triggerAction(mapper.action)
                 }

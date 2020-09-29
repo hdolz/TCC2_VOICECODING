@@ -1,30 +1,8 @@
 "use strict"
 
-const htmlElements = {
-    "h1": "<h1></h1>",
-    "h2": "<h2></h2>",
-    "h3": "<h3></h3>",
-    "h4": "<h4></h4>",
-    "h5": "<h5></h5>",
-    "h6": "<h6></h6>",
-    "p": "<p></p>",
-    "br": "</br>",
-    "a": "<a></a>",
-    "link": "<link>",
-    "ul": "<ul></ul>",
-    "li": "<li></li>",
-    "ol": "<ol></ol>"
-}
-
-const htmlAttributes = {
-    "ID" : 'id=""',
-    "E D": 'id=""'
-}
-
-const attributeNames = {
-    "ID": "id",
-    "E D": "id"
-}
+import {htmlElements as htmlElements} from '../utils/elementmapping.js'
+import {htmlAttributes as htmlAttributes} from '../utils/elementmapping.js'
+import {attributeNames as attributeNames} from '../utils/elementmapping.js'
 
 class EditorControls {
 
@@ -82,7 +60,7 @@ class EditorControls {
     } 
 
     nextCharacter(){
-        this.this.editor.execCommand('goColumnRight')
+        this.editor.execCommand('goColumnRight')
     }
 
     previousCharacter(){
@@ -271,6 +249,36 @@ class EditorControls {
     insertAttributeValue(param){
         const pos = this.getCursorPos()
         this.insertText(param.toLowerCase(), pos)
+    }
+
+    addElement(element){
+        const elemento = htmlElements[element]
+        const pos = this.getCursorPos()
+        this.insertText(elemento, pos)
+    }
+
+    expandElement(){
+        const line = this.getCursorLineContent()
+        console.log(line)
+        console.log(line.length);
+        this.cursorToBeginLine()
+        this.nextWord()
+        this.nextCharacter()
+        this.newLine()
+        this.newLine()
+        const pos = this.getCursorPos()
+        console.log('pos: ',pos)
+        this.setCursorPos(pos.line, pos.ch)
+        this.insertTab()
+    }
+
+    inserirTexto(recon){
+        let reconArray = recon.toLowerCase().split(" ")
+        console.log('Array que chega: ',reconArray);
+        reconArray.splice(0,2)
+        console.log('reconArray: ',reconArray);
+        const text = reconArray.join(" ")
+        this.insertText(text)
     }
 
 }

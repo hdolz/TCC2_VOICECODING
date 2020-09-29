@@ -1,8 +1,8 @@
 "use strict"
 
 import CommandActionMapper from './CommandActionMapper.js'
-import {simpleContexts as simple} from '../utils/simplecontexts.js'
-import {multiContexts as multi} from '../utils/multicontexts.js'
+import {multiCommandContexts as multi} from '../utils/multicontexts.js'
+import {simpleCommandContexts as simpleContexts} from '../utils/simplecontexts.js'
 
 class Contextualizer {
 
@@ -63,17 +63,23 @@ class Contextualizer {
 
     findSimpleContext(recon){
         let context = null
-        for(let i=0;i<simple.length;i++){
-            if(recon.includes(simple[i])){
-                context = simple[i]
-                break
-            }
-        }
+        const contextArray = Object.keys(simpleContexts)
+        context = contextArray.includes(recon)
         if(context){
-            return context
+            return contextArray[contextArray.indexOf(recon)]
+        } else {
+            context = null
+            for(let i=0;i<contextArray.length;i++){
+                if(recon.includes(contextArray[i])){
+                    context = contextArray[i]
+                    break
+                }
+            }
+            if(context){
+                return context
+            }
+            return null
         }
-        console.log('retornou nulo no find simples');
-        return null
     }
 }
 
