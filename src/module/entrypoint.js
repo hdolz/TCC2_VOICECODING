@@ -13,14 +13,12 @@ const commandHandler = new CommandHandler(editor, status)
 const render = new Render()
 
 export function startVoiceRecognition(){
-    console.log('START')
     rec.setEventListener(commandHandler)
     rec.startListening()
     status.setDefault('STATUS: 🔊 Escutando: ')
 }
 
 export function stopVoiceRecognition(){
-    console.log('STOP')
     rec.stopListening()
     status.setDefault('STATUS: ')
     status.setStatus('🔇 Reconhecimento de voz finalizado')
@@ -36,5 +34,4 @@ export function renderContent(){
     setTimeout(()=>{
         status.setStatus('')
     }, 2000)
-    console.log('RENDER')
 }

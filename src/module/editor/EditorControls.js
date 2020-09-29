@@ -16,8 +16,7 @@ class EditorControls {
         return this[action](param)
     }
 
-    //Functions for manipulating the editor
-
+    //Functions for manipulating the editor actions
     initEditor(){
         this.editor.setValue(
             '<!DOCTYPE html>' +'\n'+

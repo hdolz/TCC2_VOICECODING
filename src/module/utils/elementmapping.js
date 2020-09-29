@@ -13,7 +13,12 @@ export const htmlElements = {
     "link": "<link>",
     "ul": "<ul></ul>",
     "li": "<li></li>",
-    "ol": "<ol></ol>"
+    "ol": "<ol></ol>",
+    "style": "<style><style>"
+}
+
+export const cssElements = {
+    "background": "background: ;"
 }
 
 export const htmlAttributes = {

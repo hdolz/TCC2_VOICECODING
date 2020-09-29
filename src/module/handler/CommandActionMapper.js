@@ -16,11 +16,6 @@ class CommandActionMapper {
 
     getMultiAction(context){
         return this.multiActions[context]
-        // const result = this.multiActions[context]
-        // if(result){
-        //     return result
-        // }
-        // return null
     }
 
     loadSimpleActions(){

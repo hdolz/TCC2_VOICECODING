@@ -25,7 +25,6 @@ class Contextualizer {
     }
 
     checkContext(recon){
-        //procura o contexto do recon multi
         if(this.hasContext){
             if(this.context){
                 return this.hasContext

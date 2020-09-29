@@ -3,7 +3,6 @@
 //web speech api native exports
 const SpeechRecognition = webkitSpeechRecognition
 const SpeechGrammarList = webkitSpeechGrammarList
-// const SpeechRecognitionEvent = webkitSpeechRecognitionEvent
 
 class Recognizer {
 
@@ -24,7 +23,6 @@ class Recognizer {
     }
 
     setEventListener(handler){
-        console.log('Recognizer listening');
         this.recognition.onresult = (event)=>{
             const last = event.results.length - 1;
             const recon = event.results[last][0].transcript;

@@ -65,6 +65,10 @@ export const simpleCommandContexts = {
         action: 'addElement',
         param: 'li'
     },
+    'ELEMENTO ESTILO': {
+        action: 'addElement',
+        param: 'style'
+    },
     'DESFAZER': {
         action: 'undoChange',
         param: false
