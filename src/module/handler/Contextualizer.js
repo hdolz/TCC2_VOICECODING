@@ -1,6 +1,5 @@
 "use strict"
 
-import CommandActionMapper from './CommandActionMapper.js'
 import {multiCommandContexts as multi} from '../utils/multicontexts.js'
 import {simpleCommandContexts as simpleContexts} from '../utils/simplecontexts.js'
 
@@ -9,7 +8,6 @@ class Contextualizer {
     constructor(){
         this.hasContext = false
         this.context = null
-        this.actionMapper = new CommandActionMapper()
     }
 
     getContext(){

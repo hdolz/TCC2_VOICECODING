@@ -136,10 +136,6 @@ class EditorControls {
         this.editor.execCommand('goLineEnd')
     }
 
-    gotoLine(){
-        this.setCursorPos(10, 0)
-    }
-
     getEditorContent(){
         return this.editor.getValue();
     }
