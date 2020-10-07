@@ -14,21 +14,29 @@ export const htmlElements = {
     "ul": "<ul></ul>",
     "li": "<li></li>",
     "ol": "<ol></ol>",
-    "style": "<style><style>"
+    "style": "<style></style>",
+    "header": "<header></header>",
+    "nav": "<nav></nav>"
 }
 
 export const cssElements = {
     "background": "background: ;"
 }
 
+//insert attributes
 export const htmlAttributes = {
     "ID" : 'id=""',
     "E D": 'id=""',
-    "E B": 'id=""'
+    "E B": 'id=""',
+    "REFERÊNCIA": 'href=""',
+    "CLASSE": 'class=""'
 }
 
+//search for attribute
 export const attributeNames = {
     "ID": "id",
     "E D": "id",
-    "E B": "id"
+    "E B": "id",
+    "REFERÊNCIA": "href",
+    "CLASSE": "class"
 }

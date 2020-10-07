@@ -69,6 +69,14 @@ export const simpleCommandContexts = {
         action: 'addElement',
         param: 'style'
     },
+    'ELEMENTO HEADER': {
+        action: 'addElement',
+        param: 'header'
+    },
+    'ELEMENTO NAV': {
+        action: 'addElement',
+        param: 'nav'
+    },
     'DESFAZER': {
         action: 'undoChange',
         param: false
@@ -164,5 +172,17 @@ export const simpleCommandContexts = {
     'INSERIR TEXTO': {
         action: 'inserirTexto',
         param: true
+    },
+    'VALOR JAVASCRIPT VOID': {
+        action: 'inserirValorJSVoid',
+        param: false
+    },
+    'TEXTO LOREM IPSUM': {
+        action: 'loremIpsun',
+        param: false
+    },
+    'ESPAÇO EM BRANCO': {
+        action: 'addEspacoBranco',
+        param: false
     }
 }

@@ -39,7 +39,6 @@ img {
 .header {
     grid-area: header;
     height: 10vh;
-    /* background: linear-gradient(130deg, #8844ee, #B07DFB); */
     background: linear-gradient(130deg, #0b8a00, #2921ff);
     padding: 30px;
     display: grid;
