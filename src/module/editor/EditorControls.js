@@ -3,6 +3,8 @@
 import {htmlElements as htmlElements} from '../utils/elementmapping.js'
 import {htmlAttributes as htmlAttributes} from '../utils/elementmapping.js'
 import {attributeNames as attributeNames} from '../utils/elementmapping.js'
+import {cssAttributes as cssAttributes} from '../utils/elementmapping.js'
+import {specialChar as specialChar} from '../utils/elementmapping.js'
 
 import Render from '../render/Render.js'
 
@@ -254,6 +256,13 @@ class EditorControls {
         this.insertText(elemento, pos)
     }
 
+    addCssAttribute(attribute){
+        const attr = cssAttributes[attribute]
+        const pos = this.getCursorPos()
+        this.insertText(attr, pos)
+        this.previousCharacter()
+    }
+
     expandElement(){
         const line = this.getCursorLineContent()
         console.log(line)
@@ -267,6 +276,15 @@ class EditorControls {
         console.log('pos: ',pos)
         this.setCursorPos(pos.line, pos.ch)
         this.insertTab()
+    }
+
+    insertCssClass(recon){
+        const pos = this.getCursorPos()
+        const cssClass = `.${recon} {}`
+        this.insertText(cssClass.toLowerCase())
+        this.previousCharacter()
+        this.newLine()
+        this.newLine()
     }
 
     inserirTexto(recon){
@@ -296,6 +314,32 @@ class EditorControls {
     addEspacoBranco(){
         this.insertText(" ")
     }
+
+    insertChar(param){
+        const pos = this.getCursorPos()
+        const char = specialChar[param]
+        this.insertText(char)
+    }
+
+    openBraces(){
+        const pos = this.getCursorPos()
+        const braces = "{}"
+        this.insertText(braces)
+        this.previousCharacter()
+        this.newLine()
+        this.newLine()
+        this.cursorUp()
+        this.insertTab()
+    }
+
+    insertHexadecimalValue(value){
+        const pos = this.getCursorPos()
+        let hexa = `#${value.split(' ').join('')}`
+        this.insertText(hexa, pos)
+        console.log(value)
+    }
+
+    
 
 }
 

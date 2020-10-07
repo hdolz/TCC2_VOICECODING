@@ -19,8 +19,24 @@ export const htmlElements = {
     "nav": "<nav></nav>"
 }
 
-export const cssElements = {
-    "background": "background: ;"
+export const specialChar = {
+    ",": ",",
+    "#": "#",
+    "+": "+",
+    ".": "."
+}
+
+export const cssAttributes = {
+    "background": "background: ;",
+    "padding": "padding: ;",
+    "display": "display: ;",
+    "align-items": "align-items: ;",
+    "color": "color: ;",
+    "font-size": "font-size: ;",
+    "margin-left": "margin-left: ;",
+    "transition": "transition: ;",
+    "list-style": "list-style: ;",
+    "text-decoration": "text-decoration: ;"
 }
 
 //insert attributes

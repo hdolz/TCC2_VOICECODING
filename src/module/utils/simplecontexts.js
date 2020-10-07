@@ -77,6 +77,46 @@ export const simpleCommandContexts = {
         action: 'addElement',
         param: 'nav'
     },
+    'ATRIBUTO BACKGROUND': {
+        action: 'addCssAttribute',
+        param: 'background'
+    },
+    'ATRIBUTO PREENCHIMENTO': {
+        action: 'addCssAttribute',
+        param: 'padding'
+    },
+    'ATRIBUTO DISPLAY': {
+        action: 'addCssAttribute',
+        param: 'display'
+    },
+    'ATRIBUTO ALINHAR ITENS': {
+        action: 'addCssAttribute',
+        param: 'align-items'
+    },
+    'ATRIBUTO COLOR': {
+        action: 'addCssAttribute',
+        param: 'color'
+    },
+    'ATRIBUTO TAMANHO DE FONTE': {
+        action: 'addCssAttribute',
+        param: 'font-size'
+    },
+    'ATRIBUTO MARGEM ESQUERDA': {
+        action: 'addCssAttribute',
+        param: 'margin-left'
+    },
+    'ATRIBUTO TRANSIÇÃO': {
+        action: 'addCssAttribute',
+        param: 'transition'
+    },
+    'ATRIBUTO ESTILO DE LISTA': {
+        action: 'addCssAttribute',
+        param: 'list-style'
+    },
+    'ATRIBUTO DECORAÇÃO DE TEXTO': {
+        action: 'addCssAttribute',
+        param: 'text-decoration'
+    },
     'DESFAZER': {
         action: 'undoChange',
         param: false
@@ -184,5 +224,134 @@ export const simpleCommandContexts = {
     'ESPAÇO EM BRANCO': {
         action: 'addEspacoBranco',
         param: false
+    },
+    'CARACTERE,': {
+        action: 'insertChar',
+        param: ','
+    },
+    'CARACTERE #': {
+        action: 'insertChar',
+        param: '#'
+    },
+    'CARACTERE SOMA': {
+        action: 'insertChar',
+        param: '+'
+    },
+    'CARACTERE.': {
+        action: 'insertChar',
+        param: '.' 
+    },
+    'CSS LISTA': {
+        action: 'insertText',
+        param: 'li'
+    },
+    'CSS A': {
+        action: 'insertText',
+        param: 'a'
+    },
+    'CSS NAV': {
+        action: 'insertText',
+        param: 'nav'
+    },
+    'CSS H3': {
+        action: 'insertText',
+        param: 'h3'
+    },
+    'CSS LISTA NÃO ORDENADA': {
+        action: 'insertText',
+        param: 'ul'
+    },
+    'ABRIR CHAVES': {
+        action: 'openBraces',
+        param: false
+    },
+    'VALOR NONE': {
+        action: 'insertText',
+        param: 'none'
+    },
+    'VALOR RGB': {
+        action: 'insertText',
+        param: 'rgba()'
+    },
+    'VALOR NÚMERO ZERO': {
+        action: 'insertText',
+        param: '0'
+    },
+    'VALOR NÚMERO 1': {
+        action: 'insertText',
+        param: '1'
+    },
+    'VALOR NÚMERO UM': {
+        action: 'insertText',
+        param: '1'
+    },
+    'VALOR NÚMERO 2': {
+        action: 'insertText',
+        param: '2'
+    },
+    'VALOR NÚMERO 3': {
+        action: 'insertText',
+        param: '3'
+    },
+    'VALOR NÚMERO 4': {
+        action: 'insertText',
+        param: '4'
+    },
+    'VALOR NÚMERO 5': {
+        action: 'insertText',
+        param: '5'
+    },
+    'VALOR NÚMERO 6': {
+        action: 'insertText',
+        param: '6'
+    },
+    'VALOR NÚMERO 7': {
+        action: 'insertText',
+        param: '7'
+    },
+    'VALOR NÚMERO 8': {
+        action: 'insertText',
+        param: '8'
+    },
+    'VALOR NÚMERO 9': {
+        action: 'insertText',
+        param: '9'
+    },
+    'VALOR LINEAR-GRADIENT': {
+        action: 'insertText',
+        param: 'linear-gradient()'
+    },
+    'VALOR EM GRAUS': {
+        action: 'insertText',
+        param: 'deg'
+    },
+    'COR BRANCA': {
+        action: 'insertText',
+        param: 'white'
+    },
+    'COR AZUL': {
+        action: 'insertText',
+        param: 'blue'
+    },
+    'COR AZUL CLARO': {
+        action: 'insertText',
+        param: 'lightblue'
+    },
+    'COR AMARELA': {
+        action: 'insertText',
+        param: 'yellow'
+    },
+    'COR TOMATE': {
+        action: 'insertText',
+        param: 'tomato'
+    },
+    'COR VERDE': {
+        action: 'insertText',
+        param: 'green'
+    },
+    'COR VERDE CLARO': {
+        action: 'insertText',
+        param: 'lightgreen'
     }
+
 }

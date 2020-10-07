@@ -4,10 +4,36 @@ export const multiCommandContexts = {
     'MANIPULAR ELEMENTO': 'manipulate_element',
     'INSERIR VALOR': 'insert_value',
     'INSERIR ATRIBUTO': 'insert_attribute',
-    'VALOR DE ATRIBUTO': 'attribute_value'
+    'VALOR DE ATRIBUTO': 'attribute_value',
+    'CLASSE CSS': 'prepare_css_class_insertion',
+    'VALOR HEXADECIMAL': 'prepare_for_hexadecimal'
 }
 
 export const multiContextActions = {
+    'prepare_for_hexadecimal': {
+        action: null,
+        param: false,
+        nextContext: 'insert_hexadecimal_value',
+        stillContext: true
+    },
+    'insert_hexadecimal_value': {
+        action: 'insertHexadecimalValue',
+        param: true,
+        nextContext: null,
+        stillContext: false
+    },
+    'prepare_css_class_insertion': {
+        action: null,
+        param: false,
+        nextContext: 'insert_css_class',
+        stillContext: true
+    },
+    'insert_css_class': {
+        action: 'insertCssClass',
+        param: true,
+        nextContext: null,
+        stillContext: false
+    },
     'manipulate_element': {
         action: null,
         param: false,
