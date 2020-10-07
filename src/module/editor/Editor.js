@@ -6,8 +6,9 @@ class Editor {
 
     constructor(){
         this.editor = this.configureEditor()
+
         this.control = new EditorControls(this.editor)
-        this.control.triggerControl('initEditor')
+        // this.control.triggerControl('initEditor')
     }
 
     configureEditor(){
@@ -21,6 +22,7 @@ class Editor {
             theme: "dracula",
             mode: "xml"
         })
+        editor.setSize('100%','100%')
         return editor
     }
 

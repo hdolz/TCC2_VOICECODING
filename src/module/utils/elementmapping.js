@@ -36,7 +36,8 @@ export const cssAttributes = {
     "margin-left": "margin-left: ;",
     "transition": "transition: ;",
     "list-style": "list-style: ;",
-    "text-decoration": "text-decoration: ;"
+    "text-decoration": "text-decoration: ;",
+    "border-radious": "border-radious: ;"
 }
 
 //insert attributes

@@ -1,6 +1,10 @@
 "use strict"
 
 export const simpleCommandContexts = {
+    'CÓDIGO BASE': {
+        action: 'initEditor',
+        param: false
+    },
     'IR PARA LINHA' : {
         action: 'irParaLinha',
         param: true
@@ -116,6 +120,10 @@ export const simpleCommandContexts = {
     'ATRIBUTO DECORAÇÃO DE TEXTO': {
         action: 'addCssAttribute',
         param: 'text-decoration'
+    },
+    'ATRIBUTO RAIO DE BORDA': {
+        action: 'addCssAttribute',
+        param: 'border-radious'
     },
     'DESFAZER': {
         action: 'undoChange',
@@ -321,9 +329,13 @@ export const simpleCommandContexts = {
         action: 'insertText',
         param: 'linear-gradient()'
     },
-    'VALOR EM GRAUS': {
+    'UNIDADE GRAUS': {
         action: 'insertText',
         param: 'deg'
+    },
+    'UNIDADE TAMANHO DE FONTE': {
+        action: 'insertText',
+        param: 'em'
     },
     'COR BRANCA': {
         action: 'insertText',

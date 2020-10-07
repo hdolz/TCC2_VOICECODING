@@ -65,13 +65,15 @@ img {
     transition: .1s;
 }
 
+.header li + li {
+    margin-left: 30px;
+}
+
+
 .header nav a:hover {
     background: rgba(0,0,0,.5);
 }
 
-.header li + li {
-    margin-left: 30px;
-}
 
 .codeArea {
     grid-area: code;

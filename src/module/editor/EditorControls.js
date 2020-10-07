@@ -27,18 +27,14 @@ class EditorControls {
                 '<meta charset="UTF-8">'+'\n'+
                 '<meta name="viewport" content="width=device-width, initial-scale=1.0">'+'\n'+
                 '<title>Template</title>'+'\n'+
-                '<link rel="stylesheet" href="static/css/layout.css">'+'\n'+
             '</head>'+'\n'+
             '<body>'+'\n'+
-            '    <h1>Hello, world!</h1>'+'\n'+
-            '<h1></h1>'+'\n'+
             ' '+'\n'+
             '</body>'+'\n'+
             '</html>'+'\n'
         )
-        this.editor.setSize('100%','100%')
         this.focusEditor()
-        this.setCursorPos(11,8)
+        this.setCursorPos(9,8)
         this.insertTab()
     }
 
